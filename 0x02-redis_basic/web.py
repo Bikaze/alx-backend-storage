@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """This module web.py contains a function that fetches the HTML content
-of a URL, with caching and access counting."""
+of a URL, with caching and access counting.
+"""
 
 import requests
 import redis
 from functools import wraps
+from typing import Callable
 
 # Assuming Redis is running on localhost with the default port
 r = redis.Redis()
 
 
-def cache_response(func):
+def cache_response(func: Callable) -> Callable:
     @wraps(func)
     def wrapper(url):
         # Construct Redis keys for count and cache
