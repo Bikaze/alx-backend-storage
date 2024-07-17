@@ -29,7 +29,8 @@ def replay(func: Callable):
     # Display the call history
     print(f"{method_name} was called {len(inputs)} times:")
     for input_str, output_str in zip(inputs, outputs):
-        print(f"{method_name}(*{input_str.decode('utf-8')}) -> {output_str.decode('utf-8')}")
+        print(f"{method_name}(*{input_str.decode('utf-8')}) -> "
+              f"{output_str.decode('utf-8')}")
 
 
 def call_history(method: Callable) -> Callable:
